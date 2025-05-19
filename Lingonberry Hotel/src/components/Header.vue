@@ -13,8 +13,12 @@
       </ul>
     </nav>
     <div class="account-container">
-        <img src="@/assets/login_pic.png" alt="account" />
-        <img src="@/assets/lines_pic.png" alt="account" />
+      <div class="image-wrapper">
+        <img src="@/assets/login_pic.png" alt="Login Icon" />
+      </div>
+      <div class="image-wrapper">
+        <img src="@/assets/lines_pic.png" alt="Lines Icon" />
+      </div>
     </div>
   </header>
 </template>
@@ -45,7 +49,6 @@ export default {
 }
 
 .nav-bar {
-  
   flex-grow: 1;
   text-align: center;
 }
@@ -61,18 +64,38 @@ export default {
   list-style-type: none;
   display: flex;
   gap: 1.5rem;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .account-container {
   justify-self: right;
 }
 
-.account-container img {
-  filter: invert(100%);
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.image-wrapper img {
   width: 40px;
   height: auto;
-  padding-right: 20px;
+  transition: opacity 0.3s linear;
+}
+
+
+.image-wrapper:hover > img {
+  opacity: 0.5; 
+}
+
+
+.account-container img {
+  filter: invert(100%);
+}
+
+.account-container img:hover {
+  filter: invert(0%);
 }
 
 .nav-bar a {

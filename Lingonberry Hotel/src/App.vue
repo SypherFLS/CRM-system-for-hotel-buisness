@@ -6,15 +6,22 @@
             </div>
             
             <Header></Header>
+            
+            <div>
+
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'; 
+import RegistrationForm from '@/components/Registration-form.vue'; 
     export default {
+        name: 'app',
         components: {
-            Header
+            Header,
+            RegistrationForm
         }
     }
 </script>
