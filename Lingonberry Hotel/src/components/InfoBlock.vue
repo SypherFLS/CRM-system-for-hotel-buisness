@@ -70,6 +70,7 @@ onMounted(() => {
 }
 
 .image-side {
+  align-items: center;
   flex-basis: 67%; 
   padding: 1em;
   order: 2;
