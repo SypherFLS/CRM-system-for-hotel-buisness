@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import hotel from '@/assets/hotel_futazh.png';
 export default {
   name: 'Hotel',
   data() {
@@ -28,7 +29,7 @@ export default {
           location: 'Сочи',
           specification: 'Для семейного отдыха',
           price: 4500,
-          image: 'https://via.placeholder.com/200?text=Отель+1',
+          image: hotel
         },
         {
           id: 2,
@@ -36,7 +37,7 @@ export default {
           location: 'Москва',
           specification: 'Для тусовок',
           price: 5200,
-          image: 'https://via.placeholder.com/200?text=Отель+2',
+          image: hotel,
         },
         {
           id: 3,
@@ -44,7 +45,7 @@ export default {
           location: 'Санкт-Петербург',
           specification: 'Для комфортного туризма',
           price: 4800,
-          image: 'https://via.placeholder.com/200?text=Отель+3',
+          image: hotel
         },
         {
           id: 4,
@@ -52,7 +53,7 @@ export default {
           location: 'Крым',
           specification: 'Для семейного отдыха',
           price: 4300,
-          image: 'https://via.placeholder.com/200?text=Отель+4',
+          image: hotel
         },
         {
           id: 5,
@@ -60,7 +61,7 @@ export default {
           location: 'Казань',
           specification: 'Для тусовок',
           price: 5100,
-          image: 'https://via.placeholder.com/200?text=Отель+5',
+          image: hotel
         },
         {
           id: 6,
@@ -68,7 +69,7 @@ export default {
           location: 'Екатеринбург',
           specification: 'Для комфортного туризма',
           price: 4700,
-          image: 'https://via.placeholder.com/200?text=Отель+6',
+          image: hotel
         },
         {
           id: 7,
@@ -76,7 +77,7 @@ export default {
           location: 'Новосибирск',
           specification: 'Для семейного отдыха',
           price: 4400,
-          image: 'https://via.placeholder.com/200?text=Отель+7',
+          image: hotel
         },
         {
           id: 8,
@@ -84,7 +85,7 @@ export default {
           location: 'Ростов-на-Дону',
           specification: 'Для тусовок',
           price: 5300,
-          image: 'https://via.placeholder.com/200?text=Отель+8',
+          image: hotel
         },
         {
           id: 9,
@@ -92,7 +93,7 @@ export default {
           location: 'Владивосток',
           specification: 'Для комфортного туризма',
           price: 4600,
-          image: 'https://via.placeholder.com/200?text=Отель+9',
+          image: hotel
         },
         {
           id: 10,
@@ -100,7 +101,7 @@ export default {
           location: 'Краснодар',
           specification: 'Для семейного отдыха',
           price: 4200,
-          image: 'https://via.placeholder.com/200?text=Отель+10',
+          image: hotel
         },
         {
           id: 11,
@@ -108,7 +109,7 @@ export default {
           location: 'Нижний Новгород',
           specification: 'Для тусовок',
           price: 5000,
-          image: 'https://via.placeholder.com/200?text=Отель+11',
+          image: hotel
         },
         {
           id: 12,
@@ -116,7 +117,7 @@ export default {
           location: 'Самара',
           specification: 'Для комфортного туризма',
           price: 4550,
-          image: 'https://via.placeholder.com/200?text=Отель+12',
+          image: hotel
         },
       ],
     };
