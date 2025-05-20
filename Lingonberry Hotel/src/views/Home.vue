@@ -3,37 +3,23 @@
     <div id="home" class="container">
       <div class="left-side"></div>
       <div class="center-block">
-        <h1 style="font-size: 36px;">Добро пожаловать в мир комфорта и гостеприимства!</h1>
-        <p style="line-height: 1.7;">
-          Наша компания предлагает уникальные возможности для идеального отдыха и успешного ведения бизнеса. Отель расположен в живописном месте, идеально подходит как для деловых поездок, так и для романтического отпуска или семейного путешествия. Здесь вы найдете идеальное сочетание современного дизайна номеров, высоких стандартов обслуживания и неповторимой атмосферы уюта и спокойствия.
-
-          Каждый номер оснащен современной мебелью, удобной кроватью, высококачественным постельным бельем, удобствами премиум-класса и всеми необходимыми элементами, такими как телевизор с плоским экраном, бесплатный Wi-Fi, мини-бар и сейф. Вы сможете наслаждаться великолепным видом из окна и окунуться в атмосферу гармонии и умиротворенности, оставаясь сосредоточенным на своих делах или наслаждаясь свободным временем.
-
-          Для наших гостей предусмотрены разнообразные услуги, среди которых внимательное обслуживание персонала, вкусный завтрак каждое утро, возможность заказать дополнительные блюда и напитки прямо в номер, наличие конференц-залов для организации встреч и мероприятий различного формата. Специальная зона релаксации позволит отдохнуть душой и телом после насыщенного дня, воспользовавшись услугами СПА-салона или фитнес-центра отеля.
-
-          Также наша команда специалистов готова организовать культурную программу, экскурсии и досуговые мероприятия, предоставив гостям уникальную возможность познакомиться с местной культурой и традициями региона, посетить знаменитые достопримечательности и интересные места поблизости.
-
-          Выбирая наше заведение, вы получаете больше, чем просто проживание — вы открываете двери в мир удовольствия, удобства и безупречного сервиса. Позвольте нам стать частью ваших лучших воспоминаний и подарить впечатления, которыми захочется поделиться снова и снова.
-
-          Присоединяйтесь к числу тех, кто уже оценил высокий уровень нашего гостиничного сервиса и остался доволен каждым моментом своего пребывания в нашем заведении. Мы уверены, что именно здесь вы почувствуете истинное значение понятия "гостеприимство" и обретете новый опыт путешествий и жизни.
+        <h1>Сеть отелей «Брусника» — комфорт и доступность в центре города</h1>
+        <p>
+          «Брусника» — это сеть уютных отелей в Москве и других городах, предлагающая восхительные виды из окна, современные номера и качественный сервис по разумным ценам.
+          Наши гостиницы идеально подходят как для деловых поездок, так и для туристов, ценящих комфорт и удобство.
+        </p>
+        <p>
+          В каждом отеле «Брусника» вы найдете бесплатный Wi-Fi, круглосуточную стойку регистрации, удобные номера с необходимыми удобствами и возможность гибкого заселения, включая почасовую аренду.
+          Мы заботимся о вашем комфорте и безопасности, обеспечивая чистоту и внимательное обслуживание.
         </p>
       </div>
       <div class="right-side"></div>
     </div>
-
+    <section id="brusnichnye">
+      <LHBalls />
+    </section>
     <section id="hotel" class="info-block-section">
-      <div
-        style="
-          background-color: white;
-          padding: 2rem;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-            rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-          width: 100%;
-          position: relative;
-          top: -25%;
-          border-radius: 0 0 5% 5%;
-        "
-      >
+      <div class="info-blocks-inner">
         <ViewInfoBlock
           v-for="block in blocks"
           :key="block.id"
@@ -53,85 +39,95 @@
       </div>
     </section>
 
-    <!-- Новый блок "Брусничные Баллы" -->
-    <section id="brusnichnye" class="loyalty-section">
-      <div class="loyalty-container">
-        <h2>Брусничные Баллы — наша система лояльности</h2>
-        <p>
-          Накопительные брусничные баллы позволяют получать скидки, специальные предложения и подарки.
-          Чем больше вы отдыхаете у нас, тем больше преимуществ получаете! Просто регистрируйтесь и начинайте накапливать баллы при каждом бронировании.
-        </p>
-      </div>
-    </section>
-
-    <!-- Футер с контактами -->
     <footer id="contacts" class="footer">
       <div class="footer-container">
-        <h3>Контакты</h3>
-        <p>Адрес: ул. Примерная, 123, Город</p>
-        <p>Телефон: +7 (123) 456-78-90</p>
-        <p>Email: info@lingonberryhotel.ru</p>
-        <p>
-          Мы в соцсетях:
-          <a href="#" target="_blank" rel="noopener">Facebook</a> |
-          <a href="#" target="_blank" rel="noopener">Instagram</a> |
-          <a href="#" target="_blank" rel="noopener">VK</a>
-        </p>
+        <div class="footer-block contacts">
+          <h4>Контакты</h4>
+          <p>Москва, ул. Хорошевское шоссе, д. 26</p>
+          <p><a href="tel:+79360006257">+7 936 000 62 57</a></p>
+          <p><a href="mailto:info@brusnika24.ru">info@brusnika24.ru</a></p>
+        </div>
+        <div class="footer-block links">
+          <h4>Меню</h4>
+          <a href="#home">Главная</a><br />
+          <a href="#hotel">Отели</a><br />
+          <a href="#brusnichnye">Услуги</a><br />
+          <a href="#contacts">Контакты</a>
+        </div>
+        <div class="footer-block social">
+          <h4>Мы в соцсетях</h4>
+          <a href="#" aria-label="Facebook" class="social-icon">📘</a>
+          <a href="#" aria-label="Instagram" class="social-icon">📸</a>
+          <a href="#" aria-label="VK" class="social-icon">🖖</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Сеть отелей «Брусника». Все права защищены.</p>
       </div>
     </footer>
   </div>
 </template>
 
 <script>
-import hotel_image from '@/assets/hotel_pic.png';
+import hotel_image from '@/assets/visualB.png';
+import gib from '@/assets/gibc.png';
+import eco from '@/assets/price.png';
+import service from '@/assets/service.png';
+import comfortImage from '@/assets/comfort.png';
 import ViewInfoBlock from '@/components/InfoBlock.vue';
-
+import LHBalls from '@/components/LHBalls.vue';
 export default {
   name: 'Home',
   components: {
     ViewInfoBlock,
+    LHBalls,
   },
   data() {
     return {
       blocks: [
         {
           id: 1,
-          title: 'Первый блок',
-          description: 'Описание первого блока.',
+          title: 'Захватывающие красоты',
+          description:
+          'Отели «Брусника» расположены на локациях поражающий своей красотой',
           imageSrc: hotel_image,
-          altText: 'Image 1',
+          altText: 'Расположение отеля',
           direction: 'left',
         },
         {
           id: 2,
-          title: 'Второй блок',
-          description: 'Описание второго блока.',
-          imageSrc: hotel_image,
-          altText: 'Image 2',
+          title: 'Комфортные номера',
+          description:
+            'Современные номера с необходимыми удобствами: телевизор, бесплатный Wi-Fi, чайник, фен и туалетно-косметические принадлежности.',
+          imageSrc: comfortImage,
+          altText: 'Номера',
           direction: 'right',
         },
         {
           id: 3,
-          title: 'Третий блок',
-          description: 'Описание третьего блока.',
-          imageSrc: hotel_image,
-          altText: 'Image 3',
+          title: 'Гибкие условия проживания',
+          description:
+          'Возможность почасовой аренды, поздний заезд и ранний выезд, а также продление проживания при наличии свободных номеров.',
+          imageSrc: gib,
+          altText: 'Гибкие условия',
           direction: 'left',
         },
         {
           id: 4,
-          title: 'Четвёртый блок',
-          description: 'Описание четвёртого блока.',
-          imageSrc: hotel_image,
-          altText: 'Image 4',
+          title: 'Сервис',
+          description:
+            'Общая кухня, прачечная, круглосуточная стойка регистрации и внимательный персонал, говорящий на 6 разных языках.',
+          imageSrc: service,
+          altText: 'Услуги',
           direction: 'right',
         },
         {
           id: 5,
-          title: 'Пятый блок',
-          description: 'Описание пятого блока.',
-          imageSrc: hotel_image,
-          altText: 'Image 5',
+          title: 'Доступные цены',
+          description:
+            'Оптимальное соотношение цены и качества, специальные предложения и акции для постоянных гостей.',
+          imageSrc: eco,
+          altText: 'Цены',
           direction: 'left',
         },
       ],
@@ -141,17 +137,13 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
-  --color-primary: #FFDAB9;
-  --color-accent: #CD853F;
-  --color-text-dark: #333333;
-  --color-light: #FDFCFB;
+  --color-primary: #4a7c59;
+  --color-accent: #7dbf9e;
+  --color-text-dark: #2e2e2e;
+  --color-light: #f9f9f9;
+  --color-button-bg: #4a7c59;
+  --color-button-hover: #3a5c43;
 }
 
 .body {
@@ -161,162 +153,174 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: var(--color-light);
-}
-
-.top-part {
-  width: 100%;
-  height: fit-content;
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 10px;
-}
-
-.background-pic {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  filter: brightness(0.9);
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 100%;
   margin-top: 50px;
 }
 
 .left-side,
 .right-side {
   width: 10%;
-  height: 100%;
   background-color: transparent;
 }
 
 .center-block {
   width: 80%;
-  padding: 50px;
-  padding-bottom: 50px;
-  background-color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.05);
-  border-radius: 5%;
+  padding: 60px 40px;
+  background-color: #fff;
+  box-shadow: 0 12px 30px rgba(74, 124, 89, 0.15);
+  border-radius: 15px;
   text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.center-block:hover {
+  box-shadow: 0 20px 40px rgba(74, 124, 89, 0.25);
 }
 
 h1 {
-  font-size: 50px;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #333;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 p {
-  font-size: 30px;
-  margin-bottom: 1.5rem;
-  text-align: justify;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-text-dark);
+  max-width: 900px;
+  margin: 0 auto 1.5rem auto;
 }
 
 .info-block-section {
   width: 100%;
-  position: relative;
-  padding: 2rem;
+  padding: 2rem 1rem;
   margin-top: 50px;
-  text-align: center;
   background-color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.05);
-  border-radius: 0 0 5% 5%;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(74, 124, 89, 0.1);
+  text-align: center;
 }
 
-/* Новый блок Брусничные Баллы */
 .loyalty-section {
   background-color: white;
   max-width: 900px;
   margin: 50px auto;
   padding: 3rem 2rem;
-  border-radius: 5%;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.05);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(74, 124, 89, 0.1);
   text-align: center;
 }
 
 .loyalty-section h2 {
-  color: var(--color-accent);
+  color: var(--color-primary);
   margin-bottom: 1rem;
-  font-size: 36px;
+  font-size: 2.5rem;
 }
 
 .loyalty-section p {
-  font-size: 22px;
+  font-size: 1.2rem;
   line-height: 1.6;
   color: var(--color-text-dark);
 }
 
 .footer {
-  background: #181818;
-  color: #fff;
-  padding: 2rem 1rem 1rem 1rem;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1e1e1e 100%);
+  color: #dcdcdc;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  line-height: 1.7;
+  padding: 50px 30px 30px;
+  border-radius: 20px 20px 0 0;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 0 50px rgba(255, 255, 255, 0.03);
+  overflow: hidden;
 }
 
 .footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  gap: 2.5rem;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto 1rem auto;
-  gap: 2rem;
 }
 
 .footer-block {
-  min-width: 180px;
-  flex: 1 1 200px;
+  flex: 1 1 250px;
+  min-width: 220px;
 }
 
 .footer-block h4 {
-  margin-bottom: 1rem;
-  font-size: 18px;
-  color: #FFDAB9;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #a3c4a1;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
+.footer-block p,
 .footer-block a {
-  color: #FFDAB9;
+  color: #dcdcdc;
+  font-weight: 400;
+  font-size: 1rem;
   text-decoration: none;
-  margin-right: 0.5rem;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .footer-block a:hover {
-  color: #fff;
+  color: #a3c4a1;
+  text-decoration: underline;
 }
 
-.footer-block img {
-  width: 28px;
-  height: 28px;
-  margin-right: 0.5rem;
-  vertical-align: middle;
+.social-icon {
+  font-size: 26px;
+  margin-right: 14px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  color: #dcdcdc;
+}
+
+.social-icon:hover {
+  color: #a3c4a1;
+  transform: scale(1.3);
 }
 
 .footer-bottom {
-  border-top: 1px solid #444;
-  padding-top: 1rem;
+  margin-top: 40px;
   text-align: center;
   font-size: 14px;
-  color: #aaa;
+  color: #a0a0a0;
+  letter-spacing: 0.5px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .center-block {
+    width: 95%;
+    padding: 30px 20px;
+  }
   .footer-container {
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
   }
   .footer-block {
-    min-width: unset;
     text-align: center;
   }
+  .left-side,
+  .right-side {
+    display: none;
+  }
 }
-
 </style>

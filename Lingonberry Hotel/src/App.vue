@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      headerHeight: 120, // начальная высота шапки
+      headerHeight: 120, 
     };
   },
   methods: {
