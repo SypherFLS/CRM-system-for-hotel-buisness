@@ -1,8 +1,9 @@
 <template>
-  <header class="header">
+  <header :class="{ stickyHeader: isSticky }" class="header">
     <div class="logo-container">
       <img src="@/assets/logo.png" alt="Logo" />
     </div>
+
     <nav class="nav-bar">
       <ul class="nav-list">
         <li><a href="#">Главная</a></li>
@@ -11,7 +12,10 @@
         <li><a href="#">Контакты</a></li>
         <li><a href="#">О нас</a></li>
       </ul>
+
+      <h1 class="mobile-text">Lingonberry Hotel</h1>
     </nav>
+
     <div class="account-container">
       <div class="image-wrapper">
         <img src="@/assets/login_pic.png" alt="Login Icon" />
@@ -25,8 +29,29 @@
 
 <script>
 export default {
-  name: 'Header'
-}
+  name: 'Header',
+  data() {
+    return {
+      isSticky: false,
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+      if (scrollPosition > 400) { 
+        this.isSticky = true;
+      } else {
+        this.isSticky = false;
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -36,9 +61,18 @@ export default {
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
-  position: sticky;
+  position: fixed; 
   top: 0;
+  left: 0;
+  right: 0; 
   z-index: 1000;
+  transition: background-color 0.3s ease, height 0.3s ease, box-shadow 0.3s ease; /* Плавность изменений */
+  min-height: 70px; 
+}
+
+.stickyHeader {
+
+  min-height: 50px; 
 }
 
 .logo-container img {
@@ -46,6 +80,9 @@ export default {
   height: auto;
   padding-left: 20px;
   object-fit: cover;
+}
+.logo-container img:hover {
+  transform: scale(1.15);
 }
 
 .nav-bar {
@@ -68,7 +105,9 @@ export default {
 }
 
 .account-container {
-  justify-self: right;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 .image-wrapper {
@@ -76,47 +115,53 @@ export default {
   display: inline-block;
   overflow: hidden;
   margin-right: 20px;
+  transition: filter 0.3s ease; 
 }
 
 .image-wrapper img {
   width: 40px;
   height: auto;
-  transition: opacity 0.3s linear;
+  filter: invert(1); 
 }
 
-
-.image-wrapper:hover > img {
-  opacity: 0.5; 
-}
-
-
-.account-container img {
-  filter: invert(100%);
-}
-
-.account-container img:hover {
-  filter: invert(0%);
+.image-wrapper:hover img {
+  filter: grayscale(0%) sepia(100%) saturate(3000%) brightness(150%) hue-rotate(-50deg);
 }
 
 .nav-bar a {
   text-decoration: none;
   color: inherit;
   transition: all .3s ease-in-out;
+  position: relative;
 }
 
 .nav-bar a:hover {
   transform: scale(1.05);
-  color: #951c1c;
+  color: #951C1C;
 }
 
-@media screen and (max-width: 768px) {
-  .nav-bar ul {
-    flex-direction: column;
-    gap: 0.5rem;
+.mobile-text {
+  display: none; 
+  font-size: 24px;
+  color: white; 
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease; 
+}
+
+.mobile-text:hover {
+  color: #B50D1E; 
+  cursor: none; 
+}
+
+@media screen and (max-width: 968px) {
+  .mobile-text {
+    display: block;
   }
 
-  .nav-bar li {
-    margin-bottom: 0.5rem;
+  .nav-bar ul.nav-list {
+    display: none;
   }
 }
 </style>
