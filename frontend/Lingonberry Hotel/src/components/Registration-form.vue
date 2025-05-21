@@ -39,7 +39,6 @@ export default {
     async registerUser() {
       this.errorMessage = '';
 
-      
       if (this.user.password !== this.confirmPassword) {
         this.errorMessage = 'Пароли не совпадают.';
         return;

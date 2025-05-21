@@ -17,6 +17,11 @@
           </router-link>
         </li>
         <li>
+          <router-link to="/brone" exact-active-class="router-link-exact-active">
+            Бронирование
+          </router-link>
+        </li>
+        <li>
           <a
             href="#brusnichnye"
             :class="{ activeAnchor: activeSection === 'brusnichnye' }"

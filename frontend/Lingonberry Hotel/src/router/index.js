@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/Home.vue'; 
 import Hotel from '@/views/hotel.vue'; 
+import Brone from '@/views/redaction.vue'; 
 
 const routes = [
   { path: '/', name: 'home', component: Home },
   { path: '/hotel', name: 'hotel', component: Hotel },
+  { path: '/brone', name: 'brone', component: Brone },
 ];
 
 const router = createRouter({

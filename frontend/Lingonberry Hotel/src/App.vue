@@ -1,7 +1,8 @@
 <template>
   <div id="app" :style="{ paddingTop: headerHeight + 'px' }">
-    <Header @header-height-change="updateHeaderHeight" />
+    <Header @header-height-change="updateHeaderHeight"></header>
     <router-view />
+    
   </div>
 </template>
 
