@@ -1,10 +1,12 @@
 <template>
   <div id="app" :style="{ paddingTop: headerHeight + 'px' }">
-    <Header @header-height-change="updateHeaderHeight"></header>
-    <router-view />
-    
+    <div>
+      <Header @header-height-change="updateHeaderHeight"></Header>
+      <router-view />
+    </div>
   </div>
 </template>
+
 
 <script>
 import Header from '@/components/Header.vue';
@@ -27,7 +29,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 nav a {
   margin: 0 10px;
   color: #6b4c3b;

@@ -1,41 +1,42 @@
 <template>
-  <div class="page-container">
-    <div class="booking-card">
-      <h2 class="title">Календарь бронирования</h2>
+  <div>
+    <div class="page-container">
+      <div class="booking-card">
+        <h2 class="title">Календарь бронирования</h2>
 
-      <div class="calendar">
-        <div class="week-days">
-          <div v-for="day in weekDays" :key="day" class="day-name">{{ day }}</div>
-        </div>
+        <div class="calendar">
+          <div class="week-days">
+            <div v-for="(day, index) in weekDays" :key="day + '-' + index" class="day-name">{{ day }}</div>
+          </div>
 
-        <div class="days-grid">
-          <div
-            v-for="day in daysInMonth"
-            :key="day"
-            class="day"
-            :class="{ 
-              disabled: day === null,
-              selected: isSelected(day),
-              booked: isBooked(day)
-            }"
-            @click="toggleDay(day)"
-          >
-            {{ day || '' }}
+          <div class="days-grid">
+            <div
+              v-for="(day, index) in daysInMonth"
+              :key="day !== null ? day : 'empty-' + index"
+              class="day"
+              :class="{ 
+                disabled: day === null,
+                selected: isSelected(day)
+              }"
+              @click="toggleDay(day)"
+            >
+              {{ day || '' }}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="buttons">
-        <button @click="addRange" class="btn btn-add">Добавить</button>
-        <button @click="deleteRange" class="btn btn-delete">Удалить</button>
-        <button @click="confirmBooking" class="btn btn-confirm">Подтвердить</button>
+        <div class="buttons">
+          <button class="btn btn-add" @click="onAddClick">Добавить</button>
+          <button class="btn btn-delete" @click="onDeleteClick">Удалить</button>
+          <button class="btn btn-confirm" @click="onConfirmClick">Подтвердить</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 
 const today = new Date()
 const year = today.getFullYear()
@@ -43,7 +44,6 @@ const month = today.getMonth()
 
 const weekDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
 
-const bookedRanges = ref([])
 const selectedRange = ref(null)
 
 function getDaysInMonth(year, month) {
@@ -61,11 +61,6 @@ const daysInMonth = computed(() => {
   }
   return days
 })
-
-function isBooked(day) {
-  if (!day) return false
-  return bookedRanges.value.some(range => day >= range.start && day <= range.end)
-}
 
 function isSelected(day) {
   if (!day || !selectedRange.value) return false
@@ -88,61 +83,15 @@ function toggleDay(day) {
   }
 }
 
-function parseRange(str) {
-  const [start, end] = str.split(':').map(Number)
-  return { start, end }
+function onAddClick() {
+  alert('Добавить - заглушка')
 }
-
-async function loadBookedRanges() {
-  try {
-    const res = await fetch('http://localhost:8642/bookings')
-    if (!res.ok) throw new Error('Ошибка загрузки')
-    const data = await res.json()
-    bookedRanges.value = data.map(parseRange)
-  } catch (e) {
-    console.error(e)
-  }
+function onDeleteClick() {
+  alert('Удалить - заглушка')
 }
-
-function addRange() {
-  if (!selectedRange.value) {
-    alert('Выберите диапазон дат на календаре')
-    return
-  }
-  bookedRanges.value.push({ ...selectedRange.value })
-  selectedRange.value = null
+function onConfirmClick() {
+  alert('Подтвердить - заглушка')
 }
-
-function deleteRange() {
-  if (!selectedRange.value) {
-    alert('Выберите диапазон дат для удаления')
-    return
-  }
-  bookedRanges.value = bookedRanges.value.filter(
-    r => !(r.start === selectedRange.value.start && r.end === selectedRange.value.end)
-  )
-  selectedRange.value = null
-}
-
-async function confirmBooking() {
-  try {
-    const payload = bookedRanges.value.map(r => `${r.start}:${r.end}`)
-    const res = await fetch('http://localhost:8642/bookings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    if (!res.ok) throw new Error('Ошибка отправки')
-    alert('Бронирование подтверждено')
-  } catch (e) {
-    alert('Ошибка при подтверждении бронирования')
-    console.error(e)
-  }
-}
-
-onMounted(() => {
-  loadBookedRanges()
-})
 </script>
 
 <style scoped>
@@ -213,12 +162,6 @@ onMounted(() => {
   cursor: default;
   background: transparent;
   color: transparent;
-}
-
-.day.booked {
-  background-color: rgba(255, 0, 0, 0.3);
-  color: #900;
-  pointer-events: none;
 }
 
 .day.selected {
