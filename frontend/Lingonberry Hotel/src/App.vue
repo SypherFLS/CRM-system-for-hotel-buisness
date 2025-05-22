@@ -1,12 +1,11 @@
 <template>
-  <div id="app" :style="{ paddingTop: headerHeight + 'px' }">
+  <div id="app" :style="{ paddingRight: '45px' }">
     <div>
       <Header @header-height-change="updateHeaderHeight"></Header>
       <router-view />
     </div>
   </div>
 </template>
-
 
 <script>
 import Header from '@/components/Header.vue';
@@ -18,7 +17,7 @@ export default {
   },
   data() {
     return {
-      headerHeight: 120, 
+      headerHeight: 120,
     };
   },
   methods: {
