@@ -2,12 +2,12 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="logo">
-        <img src="@/assets/icon.png" alt="Логотип" />
-        <span>Отель</span>
+        <img :src="icon" alt="Логотип" />
+        <span>LGBR-HTL</span>
       </div>
       <div class="nav-buttons">
         <router-link
-          v-for="route in routes"
+          v-for="route in routesWithIcon"
           :key="route.path"
           :to="route.path"
           class="nav-button"
@@ -16,7 +16,7 @@
           @mouseleave="stopHover"
           :class="{ 'active': activeRoute === route.path }"
         >
-          <img :src="route.icon" :alt="route.name" />
+          <img :src="route.iconUrl" :alt="route.name" />
           <span class="nav-button-text">{{ route.name }}</span>
         </router-link>
       </div>
@@ -29,21 +29,32 @@ import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 import icon from '@/assets/icon.png'
+import emp from '@/assets/employees.png'
+import main from '@/assets/main.png'
+import rooms from '@/assets/rooms.png'
+import clients from '@/assets/clients.png'
+import mop from '@/assets/cleaning.png'
 
 const route = useRoute()
 const activeRoute = computed(() => route.path)
 
 const routes = [
-  { path: '/', name: 'Главная', icon },
-  { path: '/rooms', name: 'Номера', icon },
-  { path: '/clients', name: 'Клиенты', icon },
-  { path: '/employees', name: 'Сотрудники', icon },
-  { path: '/cleanings', name: 'Уборки', icon },
+  { path: '/', name: 'Главная', icon: main },
+  { path: '/rooms', name: 'Номера', icon: rooms },
+  { path: '/clients', name: 'Клиенты', icon: clients },
+  { path: '/employees', name: 'Сотрудники', icon: emp },
+  { path: '/cleanings', name: 'Уборки', icon: mop },
 ]
+
+const routesWithIcon = computed(() => routes.map(r => ({
+  ...r,
+  iconUrl: typeof r.icon === 'string' ? r.icon : r.icon.default || r.icon
+})))
 
 const hover = (path) => { /* для анимации */ }
 const stopHover = () => { /* для анимации */ }
 </script>
+
 
 <style scoped>
 .navbar {
