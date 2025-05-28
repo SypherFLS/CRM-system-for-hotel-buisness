@@ -1,9 +1,10 @@
 package db
 
 import (
+    "log"
+    "backend/models"
     "gorm.io/driver/postgres"
     "gorm.io/gorm"
-    "backend/models"
 )
 
 var DB *gorm.DB
@@ -13,7 +14,16 @@ func Init() {
     var err error
     DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
     if err != nil {
-        panic("failed to connect database: " + err.Error())
+        log.Fatalf("failed to connect database: %v", err)
     }
-    DB.AutoMigrate(&models.Hotel{}, &models.Reservation{})
+
+    err = DB.AutoMigrate(
+        &models.Room{},
+        &models.Client{},
+        &models.Employee{},
+        &models.CleaningSchedule{},
+    )
+    if err != nil {
+        log.Fatalf("failed to migrate database: %v", err)
+    }
 }
