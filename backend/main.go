@@ -1,31 +1,44 @@
 package main
 
 import (
-    "log"
-    "net/http"
-    "project/config"
-    "project/handlers"
-    "project/middleware"
-    "github.com/gorilla/mux"
+    "github.com/gin-gonic/gin"
+    "backend/db"
+    "backend/handlers"
 )
 
+
+func CORSMiddleware() gin.HandlerFunc {
+    return func(c *gin.Context) {
+        c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+        c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+        c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+        if c.Request.Method == "OPTIONS" {
+            c.AbortWithStatus(200)
+            return
+        }
+
+        c.Next()
+    }
+}
+
 func main() {
-    cfg := config.LoadConfig() // Загрузка конфигурации (БД и т.п.)
+    db.Init()
+    r := gin.Default()
 
-    r := mux.NewRouter()
+    r.Use(CORSMiddleware())
 
-    // Роуты авторизации
-    r.HandleFunc("/login", handlers.LoginHandler).Methods("POST")
-    r.HandleFunc("/register", handlers.RegisterHandler).Methods("POST")
+    r.GET("/hotels", handlers.GetHotels)
+    r.GET("/hotels/:id", handlers.GetHotel)
+    r.POST("/hotels", handlers.CreateHotel)
+    r.PUT("/hotels/:id", handlers.UpdateHotel)
+    r.DELETE("/hotels/:id", handlers.DeleteHotel)
 
-    // Роуты для работы со второй таблицей, защищены JWT middleware
-    api := r.PathPrefix("/api").Subrouter()
-    api.Use(middleware.JWTAuthMiddleware)
-    api.HandleFunc("/userdates", handlers.GetUserDates).Methods("GET")
-    api.HandleFunc("/userdates", handlers.CreateUserDate).Methods("POST")
-    api.HandleFunc("/userdates/{id}", handlers.UpdateUserDate).Methods("PUT")
-    api.HandleFunc("/userdates/{id}", handlers.DeleteUserDate).Methods("DELETE")
+    r.GET("/reservations", handlers.GetReservations)
+    r.GET("/reservations/:id", handlers.GetReservation)
+    r.POST("/reservations", handlers.CreateReservation)
+    r.PUT("/reservations/:id", handlers.UpdateReservation)
+    r.DELETE("/reservations/:id", handlers.DeleteReservation)
 
-    log.Println("Server started at :8080")
-    log.Fatal(http.ListenAndServe(":8080", r))
+    r.Run(":8080")
 }
