@@ -108,7 +108,7 @@ const stopHover = () => { /* для анимации */ }
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  color: #6d6d6d;
+  color: #6d6c6c;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
