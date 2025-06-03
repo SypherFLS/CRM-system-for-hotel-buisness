@@ -30,20 +30,19 @@ func (h *RoomHandler) AddRoom(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Println("AddRoom: received data:", room)
 
-	// Проверка обязательных полей
 	if room.Floor == 0 || room.RoomType == "" || room.PricePerDay == 0 || room.Capacity == 0 {
 		http.Error(w, "All fields are required", http.StatusBadRequest)
 		return
 	}
 
-	// Если ID не указан — находим максимальный и увеличиваем на 1
+
 	if room.ID == 0 {
 		var maxID int
 		h.DB.Model(&models.Room{}).Select("MAX(id)").Scan(&maxID)
 		room.ID = uint(maxID + 1)
 	}
 
-	// Проверка на существующий номер
+
 	var existingRoom models.Room
 	if err := h.DB.First(&existingRoom, room.ID).Error; err == nil {
 		http.Error(w, "Room with this ID already exists", http.StatusConflict)
